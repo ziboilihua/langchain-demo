@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2020",
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "outDir": "./dist",
+    "sourceMap": true
+  },
+  "types": ["mocha"],
+  "include": ["./**/*.ts", "./**/*.js"],
+  "exclude": ["node_modules", "dist"]
+}
