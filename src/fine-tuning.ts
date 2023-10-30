@@ -5,12 +5,14 @@ import FileObject = Files.FileObject;
 import {Jobs} from "openai/resources/fine-tuning";
 import FineTuningJob = Jobs.FineTuningJob;
 const openai = new OpenAI();
+// fineTuneJobId ftjob-k34VGCi9pMX3dD0vcRnQ2Jrk
+// fineTuneModelId ft:gpt-3.5-turbo-0613:personal::8FHZbRR9
 async function index() {
-    const file = 'mydata.jsonl';
-    await uploadFile(file);
-    const fineTuneFile = await queryUploadSuccessFile(file);
-    const fineTuneJob = await createFineTuneJob(fineTuneFile.id)
-    const modelId = await waitFineTuneJobSuccess(fineTuneJob.id);
+    // const file = 'mydata.jsonl';
+    // await uploadFile(file);
+    // const fineTuneFile = await queryUploadSuccessFile(file);
+    // const fineTuneJob = await createFineTuneJob(fineTuneFile.id)
+    const modelId = await waitFineTuneJobSuccess('ftjob-k34VGCi9pMX3dD0vcRnQ2Jrk');
     const completion = await openai.chat.completions.create({
         temperature: 0,
         messages: [{ role: "user", content: "软考难吗?" }],
