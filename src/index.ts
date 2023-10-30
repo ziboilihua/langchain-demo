@@ -25,7 +25,7 @@ export async function index() {
         new OpenAIEmbeddings()
     );
     // Select the relevant documents
-    const question = "存储媒体是什么?";
+    const question = "为什么要写序言";
     const relevantDocs = await store.similaritySearch(question);
 
     // Call the chain
