@@ -7,8 +7,8 @@ import { DocxLoader } from "langchain/document_loaders/fs/docx";
 
 export async function index() {
     // Create the models and chain
-    const model = new OpenAI({ temperature: 0 });
-    const chain = loadQARefineChain(model);
+    // const model = new OpenAI({ temperature: 0 });
+    // const chain = loadQARefineChain(model);
     // Load the documents
     const loader = new DocxLoader(
         "test.docx"
@@ -20,21 +20,21 @@ export async function index() {
     });
     const output = await splitter.splitDocuments(docs);
     // Load the docs into the vector store
-    const store = await MemoryVectorStore.fromDocuments(
-        output,
-        new OpenAIEmbeddings()
-    );
-    // Select the relevant documents
-    const question = "为什么要写序言";
-    const relevantDocs = await store.similaritySearch(question);
-
-    // Call the chain
-    const res = await chain.call({
-        input_documents: relevantDocs,
-        question,
-    });
-
-    console.log(res);
+    // const store = await MemoryVectorStore.fromDocuments(
+    //     output,
+    //     new OpenAIEmbeddings()
+    // );
+    // // Select the relevant documents
+    // const question = "为什么要写序言";
+    // const relevantDocs = await store.similaritySearch(question);
+    //
+    // // Call the chain
+    // const res = await chain.call({
+    //     input_documents: relevantDocs,
+    //     question,
+    // });
+    //
+    // console.log(res);
 }
 
 index()
